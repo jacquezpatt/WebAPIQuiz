@@ -8,6 +8,8 @@ var GameScore = 0;
 
 
 
+
+
 let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame)
@@ -24,6 +26,57 @@ function startGame() {
   setNextQuestion()
 }
 
+
+var questions = [
+  {
+    question: 'What is an array?',
+    answers: [
+      { text: 'a satellite.', correct: false },
+      { text: 'a global object which contains a list of items.', correct: true },
+      { text: 'a pizza topping.', correct: false },
+      { text: 'a type of sea creature.', correct: false }
+    ]
+  },
+  {
+    question: 'What is a variable?',
+    answers: [
+      { text: 'anything that can vary.', correct: true },
+      { text: ' a symbol', correct: false },
+      { text: 'an ice cream flavor.', correct: false },
+      { text: 'a city in North Carolina.', correct: false }
+    ]
+  },
+  {
+    question: 'What is a DOM',
+    answers: [
+      { text: 'Vin Diesel', correct: false },
+      { text: 'Document Object Model', correct: true },
+      { text: 'Document Object Motel', correct: false },
+      { text: 'Dominic Monaghan', correct: false }
+    ]
+  },
+  {
+    question: 'When was javascript created?',
+    answers: [
+      { text: '1900', correct: false },
+      { text: '2021', correct: false },
+      { text: '2000', correct: false },
+      { text: '1995', correct: true }
+    ]
+  },
+  {
+    question: 'Coding is ________ fun!!!',
+    answers: [
+      { text: 'very', correct: true },
+      { text: 'Super', correct: true },
+      { text: 'hella', correct: true },
+      { text: 'extremely', correct: true }
+    ]
+  }]
+
+
+
+
 function setNextQuestion() {
   resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
@@ -39,7 +92,7 @@ function showQuestion(question) {
       button.dataset.correct = answer.correct
       GameScore = GameScore + 1;
     }
-  
+
     button.addEventListener('click', selectAnswer)
     answerButtonsElement.appendChild(button)
   })
@@ -81,34 +134,3 @@ function clearStatusClass(element) {
   element.classList.remove('correct')
   element.classList.remove('wrong')
 }
-
-
-
-const questions = [
-  {
-    question: 'What is an array?',
-    answers: [
-      { text: 'a global object which contains a list of items.', correct: true },
-      { text: 'a satellite.', correct: false }
-    ]
-  },
-  {
-    question: 'What is a variable?',
-    answers: [
-      { text: 'anything that can vary.', correct: true },
-      { text: ' a symbol', correct: false },
-      { text: 'an ice cream flavor.', correct: false },
-      { text: 'a city in North Carolina.', correct: false }
-    ]
-  },
-  {
-    question: 'What is a DOM',
-    answers: [
-      { text: 'Vin Diesel', correct: false },
-      { text: 'Document Object Model', correct: true },
-      { text: 'Document Object Motel', correct: false },
-      { text: 'Dominic Monaghan', correct: false }
-    ]
-  },
-
-]
