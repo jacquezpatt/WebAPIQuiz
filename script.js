@@ -68,7 +68,7 @@ var questions = [
     question: 'Coding is ________ fun!!!',
     answers: [
       { text: 'very', correct: true },
-      { text: 'Super', correct: true },
+      { text: 'super', correct: true },
       { text: 'hella', correct: true },
       { text: 'extremely', correct: true }
     ]
