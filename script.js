@@ -1,11 +1,6 @@
-var startButton = document.getElementById("startButton");
-var Q1 = document.querySelector("#Q1");
-var Q2 = document.querySelector("#Q2");
-var Q3 = document.querySelector("#Q3");
-var Q4 = document.querySelector("#Q4");
-var Q5 = document.querySelector("#Q5");
+var startBtn = document.getElementById("startButton");
 var cursor = 0
-var questions = [Q1, Q2, Q3, Q4, Q5];
+var questions = document.querySelectorAll(".question");
 var answer1 = document.querySelectorAll(".answer1");
 var answer2 = document.querySelectorAll(".answer2");
 var answer3 = document.querySelectorAll(".answer3");
@@ -15,6 +10,30 @@ var main = document.querySelector("main");
 var score = 0
 var scoreCard = document.querySelector(".scoreCard")
 var scorePage = document.getElementById("scorePage")
+var quiz = document.querySelector(".quiz")
+var currentQ;
+
+
+function next() {
+    questions[cursor].setAttribute("style", "display: block")
+};
+document.addEventListener('click', (event) => {
+    if (event.target.matches('button')) {
+        if (cursor < questions.length) {
+            next()
+            cursor++;
+        }
+        else {
+            scorePage.setAttribute("style", "display: block")
+        }
+    }
+    if (correct) {
+        score++;
+        scoreCard.textContent = "Score: " + score
+        console.log(score)
+    } 
+});
+
 
 
 
